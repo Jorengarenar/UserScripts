@@ -25,4 +25,5 @@
     </tr>
 </table>
 ```
-<!-- vim: set filetype=html -->
+
+<!-- vim: set filetype=html: -->
