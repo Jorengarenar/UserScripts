@@ -2,7 +2,7 @@
 // @name         Pocket - Items Counter
 // @description  As more items load when you scroll down, you can refresh the countItems hitting Control-Backspace.
 // @author       Jorengarenar
-// @verison      1.0
+// @versison     1.0
 // @match        *://getpocket.com/a/*/list/*
 // @run-at       document-end
 // ==/UserScript==
