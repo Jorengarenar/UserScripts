@@ -1,4 +1,3 @@
-```html
 <table>
     <tr>
         <td><b>SITE</b></td>
@@ -24,4 +23,3 @@
         </tr>
     </tr>
 </table>
-```
