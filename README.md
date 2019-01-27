@@ -12,7 +12,7 @@
         </tr>
     </tr>
     <tr>
-        <td><i>MyAnimeList</i></td>
+        <td>MyAnimeList</td>
         <td><a href="https://github.com/Jorengarenar/userscripts/raw/master/MAL_Tweaks.user.js">MAL_Tweaks</a></td>
         <td>Some small tweaks to MAL</td>
     </tr>
