@@ -12,6 +12,11 @@
         </tr>
     </tr>
     <tr>
+        <td><i>MyAnimeList</i></td>
+        <td><a href="https://github.com/Jorengarenar/userscripts/raw/master/MAL_Tweaks.user.js">MAL_Tweaks</a></td>
+        <td>Some small tweaks to MAL</td>
+    </tr>
+    <tr>
         <tr>
             <td rowspan=2>Pocket</td>
             <td><a href="https://github.com/Jorengarenar/userscripts/raw/master/Pocket_Items_Counter.user.js">Items Counter</a></td>
