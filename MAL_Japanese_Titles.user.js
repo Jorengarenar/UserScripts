@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name           MAL - Japanese Titles
-// @version        0.6.2
+// @version        0.6.7
 // @description    Titles in Japanese for anime/manga lists on MyAnimeList
 // @include        /^https?://myanimelist.net/(anime|manga)list/\w+/
 // @grant          GM_xmlhttpRequest
@@ -8,7 +8,7 @@
 
 var pattern = /<span class=\"dark_text\">Japanese:<\/span> (.*?)(?:<\/div>|\n)/
 
-var titles = document.getElementsByClassName("link sort");
+var titles = document.querySelectorAll("td.title > a, .statistics-updates > .data > a");
 
 for (let title of titles) {
     GM_xmlhttpRequest({
