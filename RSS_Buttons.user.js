@@ -1,38 +1,35 @@
 // ==UserScript==
 // @name         RSS Buttons
-// @description  A bulk script which adds RSS Button to sites I decided at some point need it
 // @author       Jorengarenar
-// @version      1.1
+// @version      1.2.4
 // @run-at       document-end
-// @require      https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js
 
 // @include      *instagram.com*
 // @include      *twitter.com/*
 
 // ==/UserScript==
 
-if ( document.URL.indexOf("instagram") >= 0 ) {
-    let url = window.location.toString();
-    let rss = url.replace(/www.instagram.com\//, 'rsshub.app/instagram/user/');
+if (document.URL.indexOf("instagram.com") >= 0) {
     let rssButton = document.createElement('a');
-    rssButton.href = rss.substring(0, rss.length - 1);
     rssButton.target = "_blank";
     rssButton.innerHTML = "<b>RSS</b>";
-    rssButton.setAttribute('class',"BY3EC _0mzm- sqdOP  L3NKy");
-    window.setTimeout(function(){
-        $('.BY3EC').replaceWith(rssButton);
-    }, 1000);
+    rssButton.setAttribute('class', "BY3EC _0mzm- sqdOP  L3NKy");
+    window.onload = function() {
+        rssButton.href = "https://rsshub.app/instagram/user/" + document.querySelector('._7UhW9.fKFbl.yUEEX.KV-D4.fDxYl').innerText;
+        document.querySelector('.nZSzR').appendChild(rssButton);
+    };
 }
 
 
-if ( document.URL.indexOf("twitter.com") >= 0 ) {
-    let url = window.location.toString();
-    let rss = url.replace(/twitter.com\//, 'twitrss.me/twitter_user_to_rss/?user=');
-    let headerBottomLeft = document.querySelector(".user-actions");
-    let rssButton = document.createElement('a');
-    rssButton.href = rss;
-    rssButton.target = "_blank";
-    rssButton.innerHTML = "<b>RSS</b>";
-    rssButton.style = "display:inline-block;padding-left:10px";
-    headerBottomLeft.appendChild(rssButton);
+if (document.URL.indexOf("twitter.com") >= 0) {
+    let rssButton = document.createElement('span');
+    var rss;
+    if (document.URL.indexOf("/status/") >= 0) {
+        rss = "https://twitrss.me/twitter_user_to_rss/?user=" + document.querySelector(".permalink-header .username > b").innerText;
+    } else {
+        rss = window.location.toString().replace(/twitter.com\//, 'twitrss.me/twitter_user_to_rss/?user=');
+    }
+    rssButton.innerHTML = "<a href=" + rss + " target='_blank' class='EdgeButton EdgeButton--secondary EdgeButton--medium  button-text follow-text'>RSS</a>";
+    rssButton.style = "padding-left:10px";
+    document.querySelector(".user-actions").appendChild(rssButton);
 }
