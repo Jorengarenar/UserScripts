@@ -29,8 +29,8 @@
     </tr>
     <tr>
         <td>SteamGifts</td>
-        <td><a href="https://github.com/Jorengarenar/userscripts/raw/master/ESGST.user.js">ESGST 8.1.8 (Dev.20)</a></td>
-        <td>Propably best userscripts version of <a href="https://github.com/gsrafael01/ESGST">ESGST</a></td>
+        <td><a href="https://github.com/Jorengarenar/userscripts/raw/master/ESG_Hide_entered.user.js">ESG_Hide_entered</a></td>
+        <td>Hide entered giveaways (add-on to <a href="https://github.com/nandee95/Extended_Steamgifts">ESG</a>)</td>
     </tr>
     <tr>
         <td>Twitter</td>
