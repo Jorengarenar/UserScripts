@@ -145,8 +145,8 @@ function getUrlParameter(sParam) {
     }
 }
 
-//ESG icon
-$("header .nav__left-container").prepend('<a href="https://www.steamgifts.com"><img src="https://raw.githubusercontent.com/nandee95/Extended_Steamgifts/master/img/logo_trans.png" height="32px" width="32px" title="Extended Steamgifts '+ver+'&#013;By: Nandee"></a>');
+// Home button
+$("header .nav__left-container").prepend('<div class="nav__button-container"><a class="nav__button" href="https://www.steamgifts.com">SteamGifts</a></div>');
 
 // Endless scroll
 if ($(".pagination").length > 0 ) {

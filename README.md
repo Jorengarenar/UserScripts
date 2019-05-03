@@ -34,7 +34,7 @@
     </tr>
     <tr>
         <td><a href="https://github.com/Jorengarenar/userscripts/raw/master/Extended_Steamgifts_Lite.user.js">Extended Steamgifts Lite</a></td>
-        <td>Based on <a href="https://github.com/nandee95/Extended_Steamgifts">ESG</a>)</td>
+        <td>Based on <a href="https://github.com/nandee95/Extended_Steamgifts">ESG</a></td>
     </tr>
     <tr>
         <td>Twitter</td>
