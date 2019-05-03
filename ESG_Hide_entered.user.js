@@ -39,14 +39,16 @@ $(".sidebar__navigation:last").after(div_hidder);
 $(function() {
     checkbox.click();
 
-    if ( checkbox.checked ) {
-        $(".sidebar__entry-insert").click(function() {
-            $(this).closest(".giveaway__row-outer-wrap").fadeOut(300);
-        });
-        $(document).on('scroll', function() {
+    window.setTimeout(function() {
+        if ( checkbox.checked ) {
             $(".sidebar__entry-insert").click(function() {
                 $(this).closest(".giveaway__row-outer-wrap").fadeOut(300);
             });
-        });
-    }
+            $(document).on('scroll', function() {
+                $(".sidebar__entry-insert").click(function() {
+                    $(this).closest(".giveaway__row-outer-wrap").fadeOut(300);
+                });
+            });
+        }
+    }, 100);
 });
