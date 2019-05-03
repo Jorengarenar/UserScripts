@@ -28,9 +28,13 @@
         <td>Displays count of saved items </td>
     </tr>
     <tr>
-        <td>SteamGifts</td>
-        <td><a href="https://github.com/Jorengarenar/userscripts/raw/master/ESG_Hide_entered.user.js">ESG Hide entered</a></td>
+        <td rowspan=2>SteamGifts</td>
+        <td><a href="https://github.com/Jorengarenar/userscripts/raw/master/ESG_Hide_entered.user.js">ESG - Hide entered</a></td>
         <td>Hide entered giveaways (add-on to <a href="https://github.com/nandee95/Extended_Steamgifts">ESG</a>)</td>
+    </tr>
+    <tr>
+        <td><a href="https://github.com/Jorengarenar/userscripts/raw/master/Extended_Steamgifts_Lite.user.js">Extended Steamgifts Lite</a></td>
+        <td>Based on <a href="https://github.com/nandee95/Extended_Steamgifts">ESG</a>)</td>
     </tr>
     <tr>
         <td>Twitter</td>
