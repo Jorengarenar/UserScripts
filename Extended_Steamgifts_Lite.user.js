@@ -1,87 +1,87 @@
 // ==UserScript==
-// @name        Extended Steamgifts Lite
-// @description Endless scroll, scroll to top and enter/remove buttons from ESG by Nandee. Also Hide entered checkbox by me
-// @author      Jorengarenar
-// @include     *steamgifts.com*
-// @version     1.6.1
-// @require     https://github.com/Jorengarenar/userscripts/raw/master/ESG_Hide_entered.user.js
+// @name         Extended Steamgifts Lite
+// @description  Endless scroll, scroll to top, hide entered and enter/remove buttons
+// @author       Jorengarenar
+// @include      *steamgifts.com*
+// @version      1.7.0
+// @grant        GM_addStyle
 // ==/UserScript==
 
 // Styles
-$("body").prepend(" \
-<style> \
-.sidebar__entry-custom  \
-{   \
-    display: inline-block;  \
-    margin: 0 -10px 0 -10px !important; \
-    padding: 0 8px 0 8px !important;    \
-    min-width: 50px;    \
-    font-family: 'Arial',sans-serif;    \
-    font-size: 11px;    \
-    line-height: 26px;  \
-}   \
-.sidebar__navigation__itemz:hover .sidebar__navigation__item__underline \
-{   \
-    border-bottom:2px solid transparent !important; \
-}   \
-.sidebar__navigation__item__title   \
-{   \
-    font-weight:bold;   \
-    font-size: 15px;    \
-}   \
-.sidebar__navigation__itemz \
-{   \
-    font-size: 13px;    \
-}   \
-.scroll-top     \
-{   \
-    cursor: pointer;    \
-    position: fixed;    \
-    bottom: 10px;   \
-    right: 40px;    \
-    transform: rotate(-90deg);  \
-    opacity: 0.75;  \
-    z-index: 50;    \
-    padding: 10px !important;   \
-    display: block; \
-}   \
-.page-loading   \
-{   \
-    width: 160px;   \
-    height:24px;    \
-    margin: 5px auto 5px auto;  \
-    display:block;  \
-}   \
-.floating-pagination    \
-{   \
-    position:fixed; \
-    bottom:45px;    \
-    width:" + $(".sidebar").width() + "px;  \
-    text-align:center;  \
-  z-index:99999; \
-}   \
-.e-embed-frame,.e-widget-preloader  \
-{   \
-    margin:5px 0 5px 0 !important;  \
-    .global__image-outer-wrap;  \
-}   \
-.no-user-select \
-{   \
-    -webkit-user-select: none;  \
-    -moz-user-select: none; \
-}   \
-.serperator \
-{   \
-    margin-left: 10px !important;   \
-}   \
-.advanced_search    \
-{   \
-    padding:5px 20px 5px 20px;  \
-}   \
+$("body").prepend("                                                                                \
+<style>                                                                                            \
+.sidebar__entry-custom                                                                             \
+{                                                                                                  \
+    display: inline-block;                                                                         \
+    margin: 0 -10px 0 -10px !important;                                                            \
+    padding: 0 8px 0 8px !important;                                                               \
+    min-width: 50px;                                                                               \
+    font-family: 'Arial',sans-serif;                                                               \
+    font-size: 11px;                                                                               \
+    line-height: 26px;                                                                             \
+}                                                                                                  \
+.sidebar__navigation__itemz:hover .sidebar__navigation__item__underline                            \
+{                                                                                                  \
+    border-bottom:2px solid transparent !important;                                                \
+}                                                                                                  \
+.sidebar__navigation__item__title                                                                  \
+{                                                                                                  \
+    font-weight:bold;                                                                              \
+    font-size: 15px;                                                                               \
+}                                                                                                  \
+.sidebar__navigation__itemz                                                                        \
+{                                                                                                  \
+    font-size: 13px;                                                                               \
+}                                                                                                  \
+.scroll-top                                                                                        \
+{                                                                                                  \
+    cursor: pointer;                                                                               \
+    position: fixed;                                                                               \
+    bottom: 10px;                                                                                  \
+    right: 40px;                                                                                   \
+    transform: rotate(-90deg);                                                                     \
+    opacity: 0.75;                                                                                 \
+    z-index: 50;                                                                                   \
+    padding: 10px !important;                                                                      \
+    display: block;                                                                                \
+}                                                                                                  \
+.page-loading                                                                                      \
+{                                                                                                  \
+    width: 160px;                                                                                  \
+    height:24px;                                                                                   \
+    margin: 5px auto 5px auto;                                                                     \
+    display:block;                                                                                 \
+}                                                                                                  \
+.floating-pagination                                                                               \
+{                                                                                                  \
+    position:fixed;                                                                                \
+    bottom:45px;                                                                                   \
+    width:" + $(".sidebar").width() + "px;                                                         \
+    text-align:center;                                                                             \
+    z-index:99999;                                                                                 \
+}                                                                                                  \
+.e-embed-frame,.e-widget-preloader                                                                 \
+{                                                                                                  \
+    margin:5px 0 5px 0 !important;                                                                 \
+    .global__image-outer-wrap;                                                                     \
+}                                                                                                  \
+.no-user-select                                                                                    \
+{                                                                                                  \
+    -webkit-user-select: none;                                                                     \
+    -moz-user-select: none;                                                                        \
+}                                                                                                  \
+.serperator                                                                                        \
+{                                                                                                  \
+    margin-left: 10px !important;                                                                  \
+}                                                                                                  \
+.advanced_search                                                                                   \
+{                                                                                                  \
+    padding:5px 20px 5px 20px;                                                                     \
+}                                                                                                  \
 .sidebar__navigation__itemz,.sidebar__navigation__item__link,.sidebar__navigation__item__underline \
-{ \
-  max-width:9999px !important; \
-} \
+{                                                                                                  \
+    max-width:9999px !important;                                                                   \
+}                                                                                                  \
 </style>");
 
 // Essential variables
@@ -117,7 +117,7 @@ function updateURLParameter(url, param, paramVal) {
     var temp = "";
     if (additionalURL) {
         tempArray = additionalURL.split("&");
-        for (i = 0; i < tempArray.length; i++) {
+        for (let i = 0; i < tempArray.length; i++) {
             if (tempArray[i].split('=')[0] != param) {
                 newAdditionalURL += temp + tempArray[i];
                 temp = "&";
@@ -135,7 +135,7 @@ function getUrlParameter(sParam) {
         sParameterName,
         i;
 
-    for (i = 0; i < sURLVariables.length; i++) {
+    for (let i = 0; i < sURLVariables.length; i++) {
         sParameterName = sURLVariables[i].split('=');
 
         if (sParameterName[0] === sParam) {
@@ -330,6 +330,9 @@ $.fn.format_ga = function() {
         e = e.substring(0, getPos(e, ' ', 1));
         var entries = Number(e);
 
+        if (entered)
+            ga.addClass("entered-giveaway");
+
         var chance = 0;
         if (entries <= 0)
             chance = 100;
@@ -389,11 +392,13 @@ function update_gas(p) {
             $(this).find(".sidebar__entry-loading").addClass("is-hidden");
             $(this).find(".sidebar__error").removeClass("is-hidden").html('<i class="fa fa-exclamation-circle"></i> Not enough points');
         } else if (entered) {
+            $(this).addClass("entered-giveaway");
             $(this).find(".sidebar__entry-delete").removeClass("is-hidden");
             $(this).find(".sidebar__entry-insert").addClass("is-hidden");
             $(this).find(".sidebar__entry-loading").addClass("is-hidden");
             $(this).find(".sidebar__error").addClass("is-hidden");
         } else {
+            $(this).removeClass("entered-giveaway");
             $(this).find(".sidebar__entry-delete").addClass("is-hidden");
             $(this).find(".sidebar__entry-insert").removeClass("is-hidden");
             $(this).find(".sidebar__entry-loading").addClass("is-hidden");
@@ -429,11 +434,6 @@ setTimeout(function() {
             }
         });
     });
-
-    // Not sure why this even was there, because of its odd behaviour, but maybe it was somehow important
-    /* $(document).on('click', '.sidebar__error', function() {
-        $(this).addClass("is-hidden").parent().find(".sidebar__entry-insert").removeClass("is-hidden");
-    }); */
 }, 10);
 
 //Scroll to top
@@ -455,3 +455,25 @@ $(window).scroll(function() {
         state = 0;
     }
 });
+
+// Hide entered
+let checkbox = document.createElement('input');
+checkbox.type = "checkbox";
+checkbox.id = "hide-entered";
+checkbox.style = "width: initial"
+checkbox.checked = true;
+checkbox.onclick = function() {
+    if (this.checked) {
+        GM_addStyle(` .entered-giveaway { display: none } `);
+    } else {
+        GM_addStyle(` .entered-giveaway { display: initial } `);
+    }
+}
+GM_addStyle(` .entered-giveaway { display: none } `);
+
+let button_div = document.createElement('div');
+button_div.style = "display: inline-flex; position: sticky; top:15px";
+button_div.appendChild(checkbox);
+$(button_div).append('<label for="hide-entered" class="sidebar__navigation__item__name" style="padding-left: 5px">Hide entered</label>');
+
+$(".sidebar__navigation:last").after(button_div);
