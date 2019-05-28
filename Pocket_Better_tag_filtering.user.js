@@ -1,8 +1,8 @@
 // ==UserScript==
 // @name         Pocket - Better tag filtering
+// @description  Shows tags toward the top that you can select to filter the list of links. Click tag to show only links that contain that tag; shift-click tag to hide links that contain it.
 // @author       Jorengarenar
 // @version      1.1.2
-// @description  Shows tags toward the top that you can select to filter the list of links. Click tag to show only links that contain that tag; shift-click tag to hide links that contain it.
 // @include      http*://getpocket.com/*
 // @grant        none
 // ==/UserScript==

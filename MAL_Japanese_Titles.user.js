@@ -1,12 +1,13 @@
 // ==UserScript==
-// @name           MAL - Japanese Titles
-// @version        0.8.4
-// @description    Titles in Japanese on MyAnimeList
-// @include        /^https?://myanimelist.net/(anime|manga)list/\w+/
-// @include        /^https?://myanimelist.net/(anime|manga)/\d+.*
-// @include        /^https?://myanimelist.net/(anime|manga)\.php\?q=.*
-// @include        /^https?://myanimelist.net/profile/\w+/
-// @grant          GM_xmlhttpRequest
+// @name         MAL - Japanese Titles
+// @description  Titles in Japanese on MyAnimeList
+// @author       Jorengarenar
+// @version      0.8.4
+// @include      /^https?://myanimelist.net/(anime|manga)list/\w+/
+// @include      /^https?://myanimelist.net/(anime|manga)/\d+.*
+// @include      /^https?://myanimelist.net/(anime|manga)\.php\?q=.*
+// @include      /^https?://myanimelist.net/profile/\w+/
+// @grant        GM_xmlhttpRequest
 // ==/UserScript==
 
 var pattern = /<span class=\"dark_text\">Japanese:<\/span> (.*?)(?:<\/div>|\n)/

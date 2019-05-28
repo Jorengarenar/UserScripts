@@ -3,85 +3,87 @@
 // @description  Endless scroll, scroll to top, hide entered and enter/remove buttons
 // @author       Jorengarenar
 // @include      *steamgifts.com*
-// @version      1.7.0
+// @version      1.7.5
 // @grant        GM_addStyle
 // ==/UserScript==
 
 // Styles
-$("body").prepend("                                                                                \
-<style>                                                                                            \
-.sidebar__entry-custom                                                                             \
-{                                                                                                  \
-    display: inline-block;                                                                         \
-    margin: 0 -10px 0 -10px !important;                                                            \
-    padding: 0 8px 0 8px !important;                                                               \
-    min-width: 50px;                                                                               \
-    font-family: 'Arial',sans-serif;                                                               \
-    font-size: 11px;                                                                               \
-    line-height: 26px;                                                                             \
-}                                                                                                  \
-.sidebar__navigation__itemz:hover .sidebar__navigation__item__underline                            \
-{                                                                                                  \
-    border-bottom:2px solid transparent !important;                                                \
-}                                                                                                  \
-.sidebar__navigation__item__title                                                                  \
-{                                                                                                  \
-    font-weight:bold;                                                                              \
-    font-size: 15px;                                                                               \
-}                                                                                                  \
-.sidebar__navigation__itemz                                                                        \
-{                                                                                                  \
-    font-size: 13px;                                                                               \
-}                                                                                                  \
-.scroll-top                                                                                        \
-{                                                                                                  \
-    cursor: pointer;                                                                               \
-    position: fixed;                                                                               \
-    bottom: 10px;                                                                                  \
-    right: 40px;                                                                                   \
-    transform: rotate(-90deg);                                                                     \
-    opacity: 0.75;                                                                                 \
-    z-index: 50;                                                                                   \
-    padding: 10px !important;                                                                      \
-    display: block;                                                                                \
-}                                                                                                  \
-.page-loading                                                                                      \
-{                                                                                                  \
-    width: 160px;                                                                                  \
-    height:24px;                                                                                   \
-    margin: 5px auto 5px auto;                                                                     \
-    display:block;                                                                                 \
-}                                                                                                  \
-.floating-pagination                                                                               \
-{                                                                                                  \
-    position:fixed;                                                                                \
-    bottom:45px;                                                                                   \
-    width:" + $(".sidebar").width() + "px;                                                         \
-    text-align:center;                                                                             \
-    z-index:99999;                                                                                 \
-}                                                                                                  \
-.e-embed-frame,.e-widget-preloader                                                                 \
-{                                                                                                  \
-    margin:5px 0 5px 0 !important;                                                                 \
-    .global__image-outer-wrap;                                                                     \
-}                                                                                                  \
-.no-user-select                                                                                    \
-{                                                                                                  \
-    -webkit-user-select: none;                                                                     \
-    -moz-user-select: none;                                                                        \
-}                                                                                                  \
-.serperator                                                                                        \
-{                                                                                                  \
-    margin-left: 10px !important;                                                                  \
-}                                                                                                  \
-.advanced_search                                                                                   \
-{                                                                                                  \
-    padding:5px 20px 5px 20px;                                                                     \
-}                                                                                                  \
-.sidebar__navigation__itemz,.sidebar__navigation__item__link,.sidebar__navigation__item__underline \
-{                                                                                                  \
-    max-width:9999px !important;                                                                   \
-}                                                                                                  \
+$("body").prepend("                                                     \
+<style>                                                                 \
+.sidebar__entry-custom                                                  \
+{                                                                       \
+    display: inline-block;                                              \
+    margin: 0 -10px 0 -10px !important;                                 \
+    padding: 0 8px 0 8px !important;                                    \
+    min-width: 50px;                                                    \
+    font-family: 'Arial',sans-serif;                                    \
+    font-size: 11px;                                                    \
+    line-height: 26px;                                                  \
+}                                                                       \
+.sidebar__navigation__itemz:hover .sidebar__navigation__item__underline \
+{                                                                       \
+    border-bottom:2px solid transparent !important;                     \
+}                                                                       \
+.sidebar__navigation__item__title                                       \
+{                                                                       \
+    font-weight:bold;                                                   \
+    font-size: 15px;                                                    \
+}                                                                       \
+.sidebar__navigation__itemz                                             \
+{                                                                       \
+    font-size: 13px;                                                    \
+}                                                                       \
+.scroll-top                                                             \
+{                                                                       \
+    cursor: pointer;                                                    \
+    position: fixed;                                                    \
+    bottom: 10px;                                                       \
+    right: 40px;                                                        \
+    transform: rotate(-90deg);                                          \
+    opacity: 0.75;                                                      \
+    z-index: 50;                                                        \
+    padding: 10px !important;                                           \
+    display: block;                                                     \
+}                                                                       \
+.page-loading                                                           \
+{                                                                       \
+    width: 160px;                                                       \
+    height:24px;                                                        \
+    margin: 5px auto 5px auto;                                          \
+    display:block;                                                      \
+}                                                                       \
+.floating-pagination                                                    \
+{                                                                       \
+    position:fixed;                                                     \
+    bottom:45px;                                                        \
+    width:" + $(".sidebar").width() + "px;                              \
+    text-align:center;                                                  \
+    z-index:99999;                                                      \
+}                                                                       \
+.e-embed-frame,.e-widget-preloader                                      \
+{                                                                       \
+    margin:5px 0 5px 0 !important;                                      \
+    .global__image-outer-wrap;                                          \
+}                                                                       \
+.no-user-select                                                         \
+{                                                                       \
+    -webkit-user-select: none;                                          \
+    -moz-user-select: none;                                             \
+}                                                                       \
+.serperator                                                             \
+{                                                                       \
+    margin-left: 10px !important;                                       \
+}                                                                       \
+.advanced_search                                                        \
+{                                                                       \
+    padding:5px 20px 5px 20px;                                          \
+}                                                                       \
+.sidebar__navigation__itemz,                                            \
+.sidebar__navigation__item__link,                                       \
+.sidebar__navigation__item__underline                                   \
+{                                                                       \
+    max-width:9999px !important;                                        \
+}                                                                       \
 </style>");
 
 // Essential variables
@@ -103,6 +105,8 @@ if (rx) {
     pagination_min = rx[1];
     pagination_max = rx[2];
 }
+
+// -----------------------------------------------------------------------------
 
 // Essential functions
 function getPos(str, m, i) {
@@ -163,6 +167,8 @@ $(document).on('scroll', function() {
         }, 500);
     });
 });
+
+// -----------------------------------------------------------------------------
 
 // Endless scroll
 if ($(".pagination").length > 0 ) {
@@ -260,6 +266,8 @@ if($(".pinned-giveaways__button").length>0)
         $(this).find(".fa").toggleClass("fa-chevron-down").toggleClass("fa-chevron-up");
     });
 }
+
+// -----------------------------------------------------------------------------
 
 // Filter
 $.fn.filter_ga = function() {
@@ -377,6 +385,7 @@ setTimeout(function () {  $(window).trigger('scroll'); }, 200);
 // Format giveaways (on load)
 $('.giveaway__row-outer-wrap').format_ga();
 
+// -----------------------------------------------------------------------------
 
 // Enter/Remove Button click
 function update_gas(p) {
@@ -436,6 +445,8 @@ setTimeout(function() {
     });
 }, 10);
 
+// -----------------------------------------------------------------------------
+
 //Scroll to top
 $("body").prepend("<div class=\"scroll-top form__submit-button\">&gt;</div>");
 $(".scroll-top").hide();
@@ -455,6 +466,8 @@ $(window).scroll(function() {
         state = 0;
     }
 });
+
+// -----------------------------------------------------------------------------
 
 // Hide entered
 let checkbox = document.createElement('input');
@@ -477,3 +490,38 @@ button_div.appendChild(checkbox);
 $(button_div).append('<label for="hide-entered" class="sidebar__navigation__item__name" style="padding-left: 5px">Hide entered</label>');
 
 $(".sidebar__navigation:last").after(button_div);
+
+// -----------------------------------------------------------------------------
+
+// Click event fix (part of original js)
+$(document).on('click', '.trigger-popup', function() {
+	$("." + $(this).attr("data-popup")).bPopup({
+		opacity: 0.85,
+		fadeSpeed: 200,
+		followSpeed: 500,
+		modalColor: "#3c424d"
+	});
+});
+
+$(document).on('click', '.giveaway__hide', function () {
+	$(".popup--hide-games input[name=game_id]").val($(this).closest(".giveaway__row-outer-wrap").attr("data-game-id"));
+	$(".popup--hide-games .popup__heading__bold").text($(this).closest("h2").find(".giveaway__heading__name").text());
+	//Use AJAX when hiding GAs
+	var t = $(".popup--hide-games .form__submit-button.js__submit-form");
+	t.removeClass("is-disabled").html('<i class="fa fa-check-circle"></i> Yes').unbind(); // Reset button state if we had previously hidden GAs
+	t.on("click", function () {
+		var game_id = t.closest("form").find("input[name=game_id]").val();
+		$.ajax({
+			url : "/", // Is unknown if there is an API param for hiding GAs so we post to main page instead
+			type : "POST",
+			dataType : "json",
+			data : t.closest("form").serialize(),
+			complete : function (data) {
+				if(data.readyState === 4) {
+					t.addClass("is-disabled").html("Done!").unbind(); // Don't allow form resubmission if user clicks the button again
+					$(document).find("i[data-game-id=" + game_id + "]").closest(".giveaway__row-outer-wrap").remove(); // Remove all matching visible GAs instances
+				}
+			}
+		});
+	});
+});
