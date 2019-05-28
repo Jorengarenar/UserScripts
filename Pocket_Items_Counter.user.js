@@ -15,7 +15,7 @@ function countItems(){
     $(intext).insertBefore($("#pagenav_searchicon"));
 }
 
-// refresh using control + backspace
+// Refreshing using control + backspace
 $(document).keydown(function(e) {
     if (e.keyCode == 8 && e.ctrlKey) {
         countItems();

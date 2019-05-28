@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Instagram - RSS Buttons
 // @author       Jorengarenar
-// @version      0.2.4
+// @version      0.2.5
 // @run-at       document-end
 // @include      *instagram.com*
 // ==/UserScript==

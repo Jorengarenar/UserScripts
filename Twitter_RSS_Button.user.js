@@ -6,13 +6,12 @@
 // @include      *twitter.com/*
 // ==/UserScript==
 
-let rssButton = document.createElement('span');
-var rss;
 if (document.URL.indexOf("/status/") >= 0) {
-    rss = "https://twitrss.me/twitter_user_to_rss/?user=" + document.querySelector(".permalink-header .username > b").innerText;
+    var rss = "https://twitrss.me/twitter_user_to_rss/?user=" + document.querySelector(".permalink-header .username > b").innerText;
 } else {
-    rss = window.location.toString().replace(/twitter.com\//, 'twitrss.me/twitter_user_to_rss/?user=');
+    var rss = window.location.toString().replace(/twitter.com\//, 'twitrss.me/twitter_user_to_rss/?user=');
 }
+let rssButton = document.createElement('span');
 rssButton.innerHTML = "<a href=" + rss + " target='_blank' class='EdgeButton EdgeButton--secondary EdgeButton--medium  button-text follow-text'>RSS</a>";
 rssButton.style = "padding-left:10px";
 document.querySelector(".user-actions").appendChild(rssButton);
