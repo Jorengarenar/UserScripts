@@ -1,8 +1,8 @@
 // ==UserScript==
 // @name         Pocket - Items Counter
-// @description  1.3
+// @description
 // @author       Jorengarenar
-// @version      1.2
+// @version      1.3
 // @include      *://app.getpocket.com*
 // @run-at       document-end
 // ==/UserScript==
