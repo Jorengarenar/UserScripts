@@ -12,7 +12,6 @@ function countItems(){
         document.querySelector('#counter').remove();
     } finally {
         let number = document.getElementsByClassName('css-d4njwk').length;
-        console.log(number);
         let intext = document.createElement('li');
         let bar = document.createElement('a');
         intext.id = "counter";
@@ -25,7 +24,6 @@ function countItems(){
 function foo() {
     window.setTimeout(function(){
         let test = document.querySelectorAll('.css-1s7mmnq a, .css-1ugsi33 a, .css-7gaew3 a')
-        console.log(test);
         test.forEach(function(a) {
             a.addEventListener('click', function(){
                 window.setTimeout(function(){
