@@ -1,8 +1,8 @@
 // ==UserScript==
 // @name         Pocket - Items Counter
-// @description
+// @description  Works only if there is nothing more to load during being on site
 // @author       Jorengarenar
-// @version      1.3
+// @version      1.5
 // @include      *://app.getpocket.com*
 // @run-at       document-end
 // ==/UserScript==
@@ -14,6 +14,7 @@ function countItems(){
         let number = document.getElementsByClassName('css-d4njwk').length;
         console.log(number);
         let intext = document.createElement('li');
+        let bar = document.createElement('a');
         intext.id = "counter";
         intext.className = "css-1q7nt9b";
         intext.innerHTML = '<a><span style="padding: 5px">Count:</span><span style="font-weight:bold; color: red;">' + number + '</span></a>';
@@ -21,21 +22,9 @@ function countItems(){
     }
 }
 
-// Refreshing using control + backspace
-// $(document).keydown(function(e) {
-//     if (e.keyCode == 8 && e.ctrlKey) {
-//         countItems();
-//     }
-// });
-
-//
-// $('.wrapper_tag').parent().click(function() {
-//     countItems();
-// });
-
 function foo() {
     window.setTimeout(function(){
-        let test = document.querySelectorAll('.css-1s7mmnq a, .css-1ugsi33 a')
+        let test = document.querySelectorAll('.css-1s7mmnq a, .css-1ugsi33 a, .css-7gaew3 a')
         console.log(test);
         test.forEach(function(a) {
             a.addEventListener('click', function(){
@@ -50,7 +39,7 @@ function foo() {
 
 function initialize() {
     window.setTimeout(function(){
-        if (document.getElementsByClassName('item_content').length - document.getElementsByClassName('tf-hidden').length < 30) {
+        if (document.getElementsByClassName('css-d4njwk').length < 30) {
             window.setTimeout(function(){
                 countItems();
             }, 500);
@@ -66,9 +55,7 @@ function initialize() {
     }, 500);
 }
 
-// $('.pocket_logo, .section-mylist').click(function() {
-//     countItems2();
-// });
-
-window.onload = initialize();
-window.onload = foo();
+window.onload = function() {
+    initialize();
+    foo();
+}
