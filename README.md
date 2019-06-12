@@ -3,7 +3,7 @@
         <td><b>SITE</b></td>
         <td><b>SCRIPT</b></td>
         <td><b>DESCRIPTION</b></td>
-        <td>/<td>
+        <td><td>
     </tr>
     <tr>
         <td><a href="https://www.instagram.com">Instagram</a></td>
