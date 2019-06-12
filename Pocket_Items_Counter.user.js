@@ -1,9 +1,10 @@
+
 // ==UserScript==
 // @name         Pocket - Items Counter
 // @description  DROPPED | As more items load when you scroll down, you can refresh the countItems hitting Control-Backspace.
 // @author       Jorengarenar
-// @version      1.2
-// @include        *://app.getpocket.com*
+// @version      1.2.2
+// @include      *://app.getpocket.com*
 // @run-at       document-end
 // ==/UserScript==
 
@@ -11,7 +12,11 @@ function countItems(){
     // document.querySelector('.item_type_spoc').remove();
     let number = document.getElementsByClassName('css-d4njwk').length;
     console.log(number);
-    let intext = '<li id="counter" style="color: white;">Count: <span style="font-weight:bold; color: red;">' + number + '</span></li>';
+    let intext = document.createElement('li');
+    intext.id = "counter";
+    intext.className = "css-1q7nt9b";
+    intext.innerHTML = 'Count: <span style="font-weight:bold; color: red;">' + number + '</span>';
+    document.querySelector('.css-7gaew3').appendChild(intext);
 }
 
 // Refreshing using control + backspace
