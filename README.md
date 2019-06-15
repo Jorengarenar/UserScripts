@@ -23,7 +23,7 @@
         <td></td>
     </tr>
     <tr>
-        <td rowspan=2><a href="https://app.getpocket.com">Pocket</a></td>
+        <td rowspan=3><a href="https://app.getpocket.com">Pocket</a></td>
         <td><a href="https://github.com/Jorengarenar/userscripts/raw/master/Pocket_Better_tag_filtering.user.js"><s>Better tag filtering</s></a></td>
         <td>Fork of <a href="https://greasyfork.org/en/scripts/39537-pocket-tag-filtering">Pocket tag filtering</a></td>
         <td>[1]</td>
