@@ -1,5 +1,6 @@
 // ==UserScript==
 // @name         Instagram - RSS Buttons
+// @description  RSS using RSSHub.app
 // @author       Jorengarenar
 // @version      0.2.5
 // @run-at       document-end

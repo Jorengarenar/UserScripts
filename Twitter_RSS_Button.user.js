@@ -1,5 +1,6 @@
 // ==UserScript==
 // @name         Twitter - RSS Buttons
+// @description  RSS using TwitRSS.me
 // @author       Jorengarenar
 // @version      0.2.4
 // @run-at       document-end
