@@ -34,6 +34,11 @@
         <td></td>
     </tr>
     <tr>
+        <td><a href="https://github.com/Jorengarenar/userscripts/raw/master/Pocket_Open_original_URLs.user.js">Open original URLs</a></td>
+        <td>Opens original links instead of article view</td>
+        <td></td>
+    </tr>
+    <tr>
         <td rowspan=2><a href="https://www.steamgifts.com">SteamGifts</a></td>
         <td><a href="https://github.com/Jorengarenar/userscripts/raw/master/ESG_Hide_entered.user.js">ESG - Hide entered</a></td>
         <td>Hide entered giveaways (add-on to <a href="https://github.com/nandee95/Extended_Steamgifts">ESG</a>)</td>
