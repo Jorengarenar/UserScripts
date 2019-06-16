@@ -2,7 +2,7 @@
 // @name         Pocket - Items Counter
 // @description  Still highly bugged, thanks Pocket for turning your website upside down
 // @author       Jorengarenar
-// @version      1.6
+// @version      1.7
 // @include      http*://app.getpocket.com*
 // @include      http*://getpocket.com/*
 // @run-at       document-end
