@@ -23,6 +23,12 @@
         <td></td>
     </tr>
     <tr>
+        <td><a href="https://www.pixiv.net">Pixiv</a></td>
+        <td><a href="https://github.com/Jorengarenar/userscripts/raw/master/Pixiv_RSS_Button.user.js">RSS Button</a></td>
+        <td>RSS using <a href="https://rsshub.app">RSSHub</a></td>
+        <td></td>
+    </tr>
+    <tr>
         <td rowspan=3><a href="https://app.getpocket.com">Pocket</a></td>
         <td><a href="https://github.com/Jorengarenar/userscripts/raw/master/Pocket_Better_tag_filtering.user.js"><s>Better tag filtering</s></a></td>
         <td>Fork of <a href="https://greasyfork.org/en/scripts/39537-pocket-tag-filtering">Pocket tag filtering</a></td>
