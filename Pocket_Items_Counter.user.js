@@ -2,59 +2,35 @@
 // @name         Pocket - Items Counter
 // @description  Still highly bugged, thanks Pocket for turning your website upside down
 // @author       Jorengarenar
-// @version      1.5
+// @version      1.6
 // @include      http*://app.getpocket.com*
 // @include      http*://getpocket.com/*
 // @run-at       document-end
 // ==/UserScript==
 
+const config = {
+    childList: true,
+    subtree: true
+};
+
 function countItems(){
-    try {
-        document.querySelector('#counter').remove();
-    } finally {
-        let number = document.getElementsByClassName('css-d4njwk').length;
-        let intext = document.createElement('li');
-        let bar = document.createElement('a');
-        intext.id = "counter";
-        intext.className = "css-1q7nt9b";
-        intext.innerHTML = '<a><span style="padding: 5px">Count:</span><span style="font-weight:bold; color: red;">' + number + '</span></a>';
-        document.querySelector('.css-7gaew3').appendChild(intext);
-    }
-}
-
-function foo() {
     window.setTimeout(function(){
-        let test = document.querySelectorAll('.css-1s7mmnq a, .css-1ugsi33 a, .css-7gaew3 a')
-        test.forEach(function(a) {
-            a.addEventListener('click', function(){
-                window.setTimeout(function(){
-                    countItems();
-                    foo();
-                }, 500);
-            }, false);
-        });
-    }, 1000);
-}
-
-function initialize() {
-    window.setTimeout(function(){
-        if (document.getElementsByClassName('css-d4njwk').length < 30) {
-            window.setTimeout(function(){
-                countItems();
-            }, 500);
-        } else {
-            window.scrollTo(0,document.body.scrollHeight);
-            window.setTimeout(function(){
-                countItems();
-            }, 500);
-            window.setTimeout(function(){
-                window.scrollTo(0,0);
-            }, 500);
+        try {
+            document.querySelector('#counter').remove();
+        } finally {
+            let number = document.getElementsByClassName('css-d4njwk').length;
+            let intext = document.createElement('li');
+            let bar = document.createElement('a');
+            intext.id = "counter";
+            intext.className = "css-1q7nt9b";
+            intext.innerHTML = '<a><span style="padding: 5px">Count:</span><span style="font-weight:bold; color: red;">' + number + '</span></a>';
+            document.querySelector('.css-7gaew3').appendChild(intext);
         }
     }, 500);
 }
 
-window.onload = function() {
-    initialize();
-    foo();
-}
+const observer = new MutationObserver(countItems);
+
+countItems();
+
+observer.observe(document.body, config);
