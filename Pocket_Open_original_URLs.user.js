@@ -4,6 +4,7 @@
 // @author       Jorengarenar
 // @version      0.2
 // @include      /https?:\/\/(app\.)?getpocket.com.*/
+// @include      https://getpocket.com
 // @run-at       document-end
 // ==/UserScript==
 
