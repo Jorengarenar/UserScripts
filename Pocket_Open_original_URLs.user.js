@@ -2,8 +2,8 @@
 // @name         Pocket - Open original URLs
 // @description  Opens original links instead of article view
 // @author       Jorengarenar
-// @namespace    https://joren.ga
-// @version      0.4
+// @homepageURL  https://joren.ga
+// @version      0.4.1
 // @include      /https?:\/\/(app\.)?getpocket.com.*/
 // @include      https://getpocket.com
 // @run-at       document-end

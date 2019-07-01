@@ -2,8 +2,8 @@
 // @name         Twitter - RSS Buttons
 // @description  RSS using TwitRSS.me
 // @author       Jorengarenar
-// @namespace    https://joren.ga
-// @version      0.2.4
+// @homepageURL  https://joren.ga
+// @version      0.2.5
 // @run-at       document-end
 // @include      /https?:\/\/twitter.com\/\.+/
 // ==/UserScript==

@@ -2,8 +2,8 @@
 // @name         Pixiv - RSS Button
 // @description  RSS using RSSHub.app
 // @author       Jorengarenar
-// @namespace    https://joren.ga
-// @version      0.3
+// @homepageURL  https://joren.ga
+// @version      0.3.1
 // @run-at       document-end
 // @include      /https?:\/\/www\.pixiv\.net\/member\.php\?id=\d+/
 // ==/UserScript==

@@ -2,8 +2,8 @@
 // @name         Pocket - Items Counter
 // @description  Works only for small number of items
 // @author       Jorengarenar
-// @namespace    https://joren.ga
-// @version      1.8
+// @homepageURL  https://joren.ga
+// @version      1.8.1
 // @include      /https?:\/\/(app\.)?getpocket.com.*/
 // @include      https://getpocket.com
 // @exclude      /https?:\/\/(app\.)?getpocket.com\/read\/.*/
