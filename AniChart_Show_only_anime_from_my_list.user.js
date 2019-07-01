@@ -3,12 +3,14 @@
 // @description  Hide anime which isn't on your AniList watching/planning list
 // @author       Jorengarenar
 // @homepageURL  https://joren.ga
-// @version      0.3
+// @version      0.3.1
 // @run-at       document-end
 // @include      anichart.net
-// @include      /https?:\/\/anichart\.net\/(Spring|Summer|Fall|Winter)-\d{4}/
+// @include      /https?:\/\/anichart\.net\/.*/
 // @grant        GM_xmlhttpRequest
 // ==/UserScript==
+
+// TODO Better way to change username
 
 var myUserName = "Jorengarenar";
 
