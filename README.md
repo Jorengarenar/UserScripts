@@ -5,6 +5,11 @@
         <td><b>DESCRIPTION</b></td>
     </tr>
     <tr>
+        <td><a href="https://anichart.net">AniChart</a></td>
+        <td><a href="https://github.com/Jorengarenar/userscripts/raw/master/AniChart_Show_only_anime_from_my_list.user.js">Show only anime from my list</a></td>
+        <td>Hide anime which isn't on your AniList watching/planning list</td>
+    </tr>
+    <tr>
         <td><a href="https://www.instagram.com">Instagram</a></td>
         <td><a href="https://github.com/Jorengarenar/userscripts/raw/master/Instagram_RSS_Button.user.js">RSS Button</a></td>
         <td>RSS using <a href="https://rsshub.app">RSSHub</a></td>
