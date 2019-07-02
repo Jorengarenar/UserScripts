@@ -3,15 +3,53 @@
 // @description  Hide anime which isn't on your AniList watching/planning list
 // @author       Jorengarenar
 // @homepageURL  https://joren.ga
-// @version      0.3.2
+// @version      0.3.3
 // @run-at       document-end
 // @include      anichart.net
 // @include      /https?:\/\/anichart\.net\/.*/
+// @grant       GM_getValue
+// @grant       GM_deleteValue
+// @grant       GM_setValue
+// @grant       GM_registerMenuCommand
+// @require     https://code.jquery.com/jquery-3.2.1.min.js
+
 // ==/UserScript==
 
-// TODO Better way to change username
+var defaults = {
+  myUserName: "Jorengarenar",
+};
 
-var myUserName = "Jorengarenar";
+function loaddata(a, b) {
+  var val = GM_getValue(a, null);
+  return val !== null ? val : b;
+}
+
+function setdefault(restoredefault) {
+  $.each(defaults, function(name, value) {
+    window[name] = loaddata(name, value);
+  });
+}
+setdefault();
+
+function toggleconfig(name, e) {
+  e = e || !GM_getValue(name, defaults[name]);
+  GM_setValue(name, e);
+}
+
+$.each([
+  ["Username", function() {
+    var temp = prompt("Enter your AniList username", GM_getValue('myUserName', myUserName));
+    if (!!temp.match(/\w+/)) {
+      toggleconfig('myUserName', temp);
+    } else {
+      alert("invalid option");
+    }
+  }],
+], function(a, b) {
+  GM_registerMenuCommand(b[0], b[1]);
+});
+
+console.log(myUserName);
 
 var query = `
 query ListView($userName: String!, $statuses: [MediaListStatus!] = [CURRENT PLANNING]) {
@@ -26,6 +64,8 @@ query ListView($userName: String!, $statuses: [MediaListStatus!] = [CURRENT PLAN
   }
 }
 `;
+
+console.log(myUserName);
 
 var variables = {
   userName: myUserName
