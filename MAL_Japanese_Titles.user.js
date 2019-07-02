@@ -17,16 +17,16 @@ var pattern = /<span class=\"dark_text\">Japanese:<\/span> (.*?)(?:<\/div>|\n)/
 var titles = document.querySelectorAll("td.title > a, .statistics-updates > .data > a, a.fw-b.fl-l");
 console.log(titles);
 
-if ( titles.length <= 100 ) {
-    for (let title of titles) {
-        GM_xmlhttpRequest({
-            method: "GET",
-            url: title.getAttribute("href"),
-            onload: function(response) {
-                title.innerHTML = pattern.exec(response.responseText)[1];
-            }
-        });
-    }
+if (titles.length <= 100) {
+  for (let title of titles) {
+    GM_xmlhttpRequest({
+      method: "GET",
+      url: title.getAttribute("href"),
+      onload: function(response) {
+        title.innerHTML = pattern.exec(response.responseText)[1];
+      }
+    });
+  }
 }
 
 // Anime/manga pages

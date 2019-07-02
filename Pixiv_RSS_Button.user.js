@@ -16,10 +16,10 @@ rssButton.style = "margin-right: 10px; margin-left: 20px";
 let id = window.location.href.match(/id=(\d+)/)[1];
 rssButton.href = "https://rsshub.app/pixiv/user/" + id;
 window.onload = function() {
-    let bar = document.querySelector('._310Z6Ex')
-    if (bar) {
-        bar.insertBefore(rssButton, bar.childNodes[0]);
-    } else {
-        document.querySelector('.userdata').insertBefore(rssButton, document.querySelector('.count-container'));
-    }
+  let bar = document.querySelector('._310Z6Ex')
+  if (bar) {
+    bar.insertBefore(rssButton, bar.childNodes[0]);
+  } else {
+    document.querySelector('.userdata').insertBefore(rssButton, document.querySelector('.count-container'));
+  }
 };

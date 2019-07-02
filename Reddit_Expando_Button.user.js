@@ -10,6 +10,6 @@
 var btn = document.createElement("button");
 btn.innerHTML = "Expando Button";
 btn.onclick = function() {
-    $('.expando-button.collapsed').click()
+  $('.expando-button.collapsed').click()
 }
 document.querySelector('#header-bottom-left').appendChild(btn);
