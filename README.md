@@ -6,7 +6,7 @@
     </tr>
     <tr>
         <td><a href="https://anichart.net">AniChart</a></td>
-        <td><a href="https://github.com/Jorengarenar/userscripts/raw/master/AniChart_Show_only_anime_from_my_list.user.js">Show only anime from my list</a></td>
+        <td><a href="https://github.com/Jorengarenar/userscripts/raw/master/AniChart_Show_only_anime_from_my_AniList.user.js">Show only anime from my AniList</a></td>
         <td>Hide anime which isn't on your AniList watching/planning list</td>
     </tr>
     <tr>

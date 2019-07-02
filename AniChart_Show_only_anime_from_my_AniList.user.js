@@ -1,5 +1,5 @@
 // ==UserScript==
-// @name         AniChart - Show only anime from my list
+// @name         AniChart - Show only anime from my AniList
 // @description  Hide anime which isn't on your AniList watching/planning list
 // @author       Jorengarenar
 // @homepageURL  https://joren.ga
