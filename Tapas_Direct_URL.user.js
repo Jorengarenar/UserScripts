@@ -5,6 +5,7 @@
 // @homepageURL  https://joren.ga
 // @version      0.1.2
 // @run-at       document-end
+// @include      https://tapas.io
 // @include      /https?:\/\/tapas\.io\/episode\/.+/
 // ==/UserScript==
 

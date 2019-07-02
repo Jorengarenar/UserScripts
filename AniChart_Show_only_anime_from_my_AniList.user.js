@@ -5,7 +5,6 @@
 // @homepageURL  https://joren.ga
 // @version      0.3.3
 // @run-at       document-end
-// @include      https://anichart.net
 // @include      /https?:\/\/anichart\.net\/.*/
 
 // @grant        GM_getValue
