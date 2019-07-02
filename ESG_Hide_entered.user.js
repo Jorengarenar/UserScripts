@@ -13,17 +13,17 @@ checkbox.type = "checkbox";
 checkbox.id = "hide-entered";
 checkbox.style = "width: initial"
 checkbox.onclick = function() {
-    if (this.checked) {
-        $(".sidebar__entry-insert.is-hidden").siblings(".sidebar__error.is-hidden").closest(".giveaway__row-outer-wrap").hide()
-        $(document).on('scroll', function() {
-            $(".sidebar__entry-insert.is-hidden").siblings(".sidebar__error.is-hidden").closest(".giveaway__row-outer-wrap").hide()
-        });
-    } else {
-        $(".sidebar__entry-insert.is-hidden").closest(".giveaway__row-outer-wrap").show()
-        $(document).on('scroll', function() {
-            $(".sidebar__entry-insert.is-hidden").closest(".giveaway__row-outer-wrap").show()
-        });
-    }
+  if (this.checked) {
+    $(".sidebar__entry-insert.is-hidden").siblings(".sidebar__error.is-hidden").closest(".giveaway__row-outer-wrap").hide()
+    $(document).on('scroll', function() {
+      $(".sidebar__entry-insert.is-hidden").siblings(".sidebar__error.is-hidden").closest(".giveaway__row-outer-wrap").hide()
+    });
+  } else {
+    $(".sidebar__entry-insert.is-hidden").closest(".giveaway__row-outer-wrap").show()
+    $(document).on('scroll', function() {
+      $(".sidebar__entry-insert.is-hidden").closest(".giveaway__row-outer-wrap").show()
+    });
+  }
 }
 
 let button_div = document.createElement('div');
@@ -34,18 +34,18 @@ $(button_div).append('<label for="hide-entered" class="sidebar__navigation__item
 $(".sidebar__navigation:last").after(button_div);
 
 $(function() {
-    checkbox.click();
+  checkbox.click();
 
-    window.setTimeout(function() {
-        if (checkbox.checked) {
-            $(".sidebar__entry-insert").click(function() {
-                $(this).closest(".giveaway__row-outer-wrap").fadeOut(300);
-            });
-            $(document).on('scroll', function() {
-                $(".sidebar__entry-insert").click(function() {
-                    $(this).closest(".giveaway__row-outer-wrap").fadeOut(300);
-                });
-            });
-        }
-    }, 100);
+  window.setTimeout(function() {
+    if (checkbox.checked) {
+      $(".sidebar__entry-insert").click(function() {
+        $(this).closest(".giveaway__row-outer-wrap").fadeOut(300);
+      });
+      $(document).on('scroll', function() {
+        $(".sidebar__entry-insert").click(function() {
+          $(this).closest(".giveaway__row-outer-wrap").fadeOut(300);
+        });
+      });
+    }
+  }, 100);
 });
