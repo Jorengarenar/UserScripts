@@ -4,6 +4,8 @@
 // @author       Jorengarenar
 // @homepageURL  https://joren.ga
 // @include      /https?:\/\/www\.steamgifts\.com.*/
+// @exclude      /https?:\/\/www\.steamgifts\.com/giveaways?/.*
+// @exclude      /https?:\/\/www\.steamgifts\.com/user/.*
 // @include      steamgifts.com
 // @version      1.7.9
 // @grant        GM_addStyle
