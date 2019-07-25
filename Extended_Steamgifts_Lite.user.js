@@ -7,7 +7,7 @@
 // @exclude      /https?:\/\/www\.steamgifts\.com/giveaway/.*
 // @exclude      /https?:\/\/www\.steamgifts\.com/user/.*
 // @include      steamgifts.com
-// @version      1.8.1
+// @version      1.8.2
 // @grant        GM_addStyle
 // ==/UserScript==
 
@@ -56,11 +56,14 @@ $("body").prepend("                                                     \
     margin: 5px auto 5px auto;                                          \
     display:block;                                                      \
 }                                                                       \
+.sidebar--wide                                                          \
+{                                                                       \
+min-width: initial !important;                                          \
+}                                                                       \
 .floating-pagination                                                    \
 {                                                                       \
     position:fixed;                                                     \
     bottom:45px;                                                        \
-    width:" + $(".sidebar").width() + "px;                              \
     text-align:center;                                                  \
     z-index:99999;                                                      \
 }                                                                       \
@@ -87,6 +90,11 @@ $("body").prepend("                                                     \
 .sidebar__navigation__item__underline                                   \
 {                                                                       \
     max-width:9999px !important;                                        \
+}                                                                       \
+.page__heading ~ div                                                    \
+{                                                                       \
+background-color: initial !important;                                   \
+border: initial !important;                                             \
 }                                                                       \
 </style>");
 
@@ -151,9 +159,6 @@ function getUrlParameter(sParam) {
     }
   }
 }
-
-// Main page button
-$("header .nav__left-container").prepend('<div id="main-page-button" class="nav__button-container"><a class="nav__button" href="https://www.steamgifts.com">SteamGifts</a></div>');
 
 // Points in page title
 var original_page_title = document.title;
@@ -369,7 +374,7 @@ $.fn.format_ga = function() {
     // Enter/Remove button
     if (active && user != username && title != "Invite Only" && $(ga).find('.giveaway__column--contributor-level--negative').length === 0) {
       $(ga).find('.giveaway__row-inner-wrap').removeClass('is-faded');
-      $(ga).find(".giveaway__columns").append("<div><form>    \
+      $(ga).find(".giveaway__columns").prepend("<div><form>    \
                 <input type=\"hidden\" name=\"xsrf_token\" value=\"" + xsrf + "\" />    \
                 <input type=\"hidden\" name=\"do\" value=\"\" />    \
                 <input type=\"hidden\" name=\"code\" value=\"" + code + "\" />  \
