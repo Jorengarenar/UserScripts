@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         Twitter - RSS Buttons
-// @description  RSS using TwitRSS.me
+// @description  DOES NOT WORK ANYMORE | RSS using TwitRSS.me
 // @author       Jorengarenar
 // @homepageURL  https://joren.ga
 // @version      0.2.5
