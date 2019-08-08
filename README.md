@@ -10,6 +10,11 @@
         <td>Hide anime which isn't on your AniList watching/planning list</td>
     </tr>
     <tr>
+        <td><a href=""https://github.com/>GitHub</a></td>
+        <td><a href="https://github.com/Jorengarenar/userscripts/raw/master/GitHub_Search_All_Github_by_default.user.js">Search "All Github" by default</a></td>
+        <td>Select "All GitHub" instead of "In this repository"</td>
+    </tr>
+    <tr>
         <td><a href="https://www.instagram.com">Instagram</a></td>
         <td><a href="https://github.com/Jorengarenar/userscripts/raw/master/Instagram_RSS_Button.user.js">RSS Button</a></td>
         <td>RSS using <a href="https://rsshub.app">RSSHub</a></td>
