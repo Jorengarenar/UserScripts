@@ -3,7 +3,7 @@
 // @description  Opens original links instead of article view
 // @author       Jorengarenar
 // @homepageURL  https://joren.ga
-// @version      0.4.1
+// @version      0.5.1
 // @include      /https?:\/\/(app\.)?getpocket.com.*/
 // @include      https://getpocket.com
 // @run-at       document-end
@@ -18,25 +18,19 @@ const config = {
 function change(queue, observer) {
   window.setTimeout(function() {
     let articles_list = document.querySelectorAll('article');
-    for (let link of articles_list) {
-      let originalURL = link.querySelector('.css-1fzr42x > a');
-      if (originalURL) {
+    for (let article of articles_list) {
+      let originalURL = article.querySelector('a.publisher');
+      let link = article.querySelector('.content > h2.title');
+      if (originalURL && link.querySelector('a[tabindex="0"]')) {
         let newURL = document.createElement('a');
-        newURL.href = decodeURIComponent(originalURL.href.replace("https://getpocket.com/redirect?url=", ''));
-        newURL.target = "_blank";
-        newURL.style = "font-size: 20px; line-height: 1.2em; max-height: 2.4em;";
-        newURL.className = "css-7d05mi";
-
-        let articleURL = link.querySelector('.css-7zhfhb > a');
-        newURL.innerText = articleURL.querySelector('div').innerText;
-        articleURL.replaceWith(newURL);
+        newURL.innerText = link.querySelector('a').innerText;
+        newURL.href = originalURL.href;
+        link.replaceChild(newURL, link.childNodes[0]);
       }
     }
   }, 1000);
 };
 
 const observer = new MutationObserver(change);
-
 change(document.body, config);
-
 observer.observe(document.body, config);
