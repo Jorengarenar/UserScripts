@@ -4,8 +4,7 @@
 // @author       Jorengarenar
 // @homepageURL  https://joren.ga
 // @version      0.5.1
-// @include      /https?:\/\/(app\.)?getpocket.com.*/
-// @include      https://getpocket.com
+// @match        https://getpocket.com/my-list/*
 // @run-at       document-end
 // ==/UserScript==
 
