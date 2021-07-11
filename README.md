@@ -36,6 +36,13 @@
         <td>Opens original links instead of article view</td>
     </tr>
     <tr>
+        <td rowspan=2><a href="https://old.reddit.com">Reddit (old)</a></td>
+    </tr>
+    <tr>
+        <td><a href="https://github.com/Jorengarenar/userscripts/raw/master/Reddit/Comment_collapser.user.js">Comment collapser</a></td>
+        <td>Collapse comment trees in fashion similar to New Reddit<a></td>
+    </tr>
+    <tr>
         <td><a href="https://www.steamgifts.com">SteamGifts</a></td>
         <td><a href="https://github.com/Jorengarenar/userscripts/raw/master/SteamGifts/ESG_Hide_entered.user.js">ESG - Hide entered</a></td>
         <td>Hide entered giveaways (add-on to <a href="https://github.com/nandee95/Extended_Steamgifts">ESG</a>)</td>
