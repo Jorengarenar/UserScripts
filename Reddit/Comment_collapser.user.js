@@ -1,19 +1,32 @@
 // ==UserScript==
 // @name         Reddit Old - Comment collapser
 // @description  Collapse comment trees in fashion similar to New Reddit
-// @version      0.9.0
+// @version      1.0.0
 // @author       Jorengarenar
 // @match        https://*.reddit.com/r/*/comments/*
 // @grant        GM_addStyle
 // ==/UserScript==
 
 GM_addStyle(`
-  .comment        { position: relative; width: max-content;  }
-  .comment .entry        { margin-left: 25px;                }
-  .comment .midcol       { position: absolute; height: 100%; }
-  .comment .midcol:hover { background: rgba(0, 0, 0, 0.4);   }
+  .comment               { position: relative;               }
+  .comment > .entry      { margin-left: 35px;                }
+  .comment > .midcol     { position: absolute; height: 100%; }
+  .comment > .child      { border: none;                     }
   .comment.deleted > .midcol          { visibility: visible; }
   .comment.deleted > .midcol > .arrow { visibility: hidden;  }
+
+  .comment > .midcol::after {
+    border-left: 1px dotted;
+    content: '';
+    display: block;
+    height: 100%;
+    margin: 10px auto;
+    width: 1px;
+  }
+
+  .comment > .midcol:hover::after {
+    border-width: 3px;
+  }
 `);
 
 window.addEventListener("click", (e) => {
