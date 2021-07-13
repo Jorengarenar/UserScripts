@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         Hacker News - comment collapse
-// @description  Collapse comment tree without scrolling to its root
+// @description  Collapse comment tree without scrolling to its root (similar as on Reddit New)
 // @version      0.4.0
 // @author       Jorengarenar
 // @match        https://news.ycombinator.com/item?id=*
