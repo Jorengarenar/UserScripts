@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Better Markdown for Old Reddit
 // @description  Replace Markdown renderer on Old Reddit with Marked
-// @version      1.0.2
+// @version      1.1.0
 // @author       Jorengarenar
 // @namespace    https://joren.ga
 // @run-at       document-start
@@ -93,6 +93,26 @@ const imgPreview = {
   }
 };
 
+const gif = {
+  name: "gif",
+  level: "inline",
+  start(src) { return src.match(/!\[gif\]\(giphy\|/)?.index; },
+  tokenizer(src, tokens) {
+    const rule = /^!\[gif\]\(giphy\|(.+?)(\|.*)?\)/;
+    const match = rule.exec(src);
+    if (match) {
+      return {
+        type: "gif",
+        raw: match[0],
+        text: match[1]
+      };
+    }
+  },
+  renderer(token) {
+    return `<a href="https://giphy.com/gifs/${token.text}"><img src="https://i.giphy.com/media/${token.text}/giphy.gif"></a>`;
+  }
+};
+
 const escHTML = {
   name: "escHTML",
   level: "inline",
@@ -114,7 +134,7 @@ const escHTML = {
   }
 };
 
-marked.use({ extensions: [ spoiler, superscript, subreddit, imgPreview, escHTML ] });
+marked.use({ extensions: [ spoiler, superscript, subreddit, imgPreview, gif, escHTML ] });
 
 
 function recodeHTML(html) {
