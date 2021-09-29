@@ -93,5 +93,5 @@ fetch(url, {
   body: JSON.stringify({ query: "query { AniChartUser { user { id } highlights } }", })
 }).then(handleResponse).then((json) => {
   highlights = json.data.AniChartUser.highlights;
-  getLists(json.data.AniChartUser.user.id)
+  getLists(json.data.AniChartUser.user.id);
 }).catch(console.error);

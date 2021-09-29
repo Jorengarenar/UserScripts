@@ -34,7 +34,7 @@ if (window.Date.now() > (GM_getValue("jwt")?.expires || 0)) {
       warning.innerHTML = "<b>[Activity Cleaner]</b><br>Access token expired<br>Visit <i>Home</i> and refresh page";
       warning.style = "color: red; text-align: right; position: absolute; top: 10px; right: 10px;";
       document.querySelector("#nav").append(warning);
-    }
+    };
   }
 }
 
