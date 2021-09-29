@@ -3,7 +3,7 @@
 // @description  Automatically marks anime from Watching/Planning list as "Watching" / "Maybe Watching" (may require refreshing page twice)
 // @author       Jorengarenar
 // @namespace    https://joren.ga
-// @version      1.0.0
+// @version      1.0.1
 // @run-at       document-start
 // @match        https://anichart.net/*
 // @grant        GM_getValue
@@ -14,7 +14,7 @@
 
 if (Date.now() > (GM_getValue("jwt")?.expires || 0)) {
   if (window.location.hash.length === 0) {
-    window.location.replace(`https://anilist.co/api/v2/oauth/authorize?client_id=6629&response_type=token`);
+    window.location.replace("https://anilist.co/api/v2/oauth/authorize?client_id=6629&response_type=token");
   } else {
     let urlSearch = new URLSearchParams(window.location.hash.substring(1));
     GM_setValue("jwt", {
@@ -25,8 +25,8 @@ if (Date.now() > (GM_getValue("jwt")?.expires || 0)) {
   }
 }
 
-const access_token = GM_getValue("jwt")?.token;
-if (!access_token) {
+const accessToken = GM_getValue("jwt")?.token;
+if (!accessToken) {
   console.error("Was not able to find access token");
   return;
 }
@@ -35,7 +35,7 @@ const url = "https://graphql.anilist.co";
 const handleResponse = (response) => response.json().then((json) => response.ok ? json : Promise.reject(json));
 
 const headers = {
-  "Authorization": "Bearer " + access_token,
+  "Authorization": "Bearer " + accessToken,
   "Content-Type": "application/json",
   "Accept": "application/json",
 };
@@ -43,9 +43,9 @@ const headers = {
 let highlights = {};
 function buildQuery(list, color) {
   let query = "";
-  list.entries.forEach(entry => {
+  list.entries.forEach((entry) => {
     let id = entry.media.id;
-    if (highlights[id] != color) {
+    if (highlights[id] !== color) {
       query += `
       hi${id} : UpdateAniChartHighlights (highlights: {
         mediaId: ${id}
@@ -54,9 +54,9 @@ function buildQuery(list, color) {
     }
   });
   return query;
-};
+}
 
-function bar(lists) {
+function mark(lists) {
   let queryBody = buildQuery(lists[0], "green") + buildQuery(lists[1], "yellow");
   if (queryBody === "") { return; }
   fetch(url, {
@@ -66,7 +66,7 @@ function bar(lists) {
   }).then(handleResponse).catch(console.error);
 }
 
-function foo(userId) {
+function getLists(userId) {
   fetch(url, {
     method: "POST",
     headers: headers,
@@ -84,7 +84,7 @@ function foo(userId) {
           }
         }`
     })
-  }).then(handleResponse).then(data => bar(data.data.MediaListCollection.lists)).catch(console.error);
+  }).then(handleResponse).then((json) => mark(json.data.MediaListCollection.lists)).catch(console.error);
 }
 
 fetch(url, {
@@ -93,5 +93,5 @@ fetch(url, {
   body: JSON.stringify({ query: "query { AniChartUser { user { id } highlights } }", })
 }).then(handleResponse).then((json) => {
   highlights = json.data.AniChartUser.highlights;
-  foo(json.data.AniChartUser.user.id)
+  getLists(json.data.AniChartUser.user.id)
 }).catch(console.error);

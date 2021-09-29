@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         AniList: Activity Cleaner
 // @description  Automatically deletes all new list activity entries from your profile
-// @version      1.0.0
+// @version      1.0.1
 // @author       Jorengarenar
 // @namespace    https://joren.ga
 // @run-at       document-start
@@ -19,7 +19,7 @@ const userId = JSON.parse(window.localStorage.auth).id;
 if (window.Date.now() > (GM_getValue("jwt")?.expires || 0)) {
   if (window.location.pathname.indexOf("home") === 1) {
     if (window.location.hash.length === 0) {
-      window.location.replace(`https://anilist.co/api/v2/oauth/authorize?client_id=6628&response_type=token`);
+      window.location.replace("https://anilist.co/api/v2/oauth/authorize?client_id=6628&response_type=token");
     } else {
       let urlSearch = new URLSearchParams(window.location.hash.substring(1));
       window.history.replaceState({}, document.title, "/home");
@@ -38,8 +38,8 @@ if (window.Date.now() > (GM_getValue("jwt")?.expires || 0)) {
   }
 }
 
-const access_token = GM_getValue("jwt")?.token;
-if (!access_token) {
+const accessToken = GM_getValue("jwt")?.token;
+if (!accessToken) {
   console.error("Was not able to find access token");
   return;
 }
@@ -48,7 +48,7 @@ const url = "https://graphql.anilist.co";
 const handleResponse = (response) => response.json().then((json) => response.ok ? json : Promise.reject(json));
 
 const headers = {
-  "Authorization": "Bearer " + access_token,
+  "Authorization": "Bearer " + accessToken,
   "Content-Type": "application/json",
   "Accept": "application/json",
 };
@@ -87,9 +87,9 @@ function start() { // get IDs of activities then delete them
 
 document.addEventListener("click", (el) => {
   let cl = el.target.className;
-  if (cl === "plus-progress" || cl === "save-btn") { start() }
+  if (cl === "plus-progress" || cl === "save-btn") { start(); }
 });
 
 document.addEventListener("click", (el) => {
-  if (el.target.textContent === "Set as Planning") { window.setTimeout(start, 500) }
+  if (el.target.textContent === "Set as Planning") { window.setTimeout(start, 500); }
 }, true);
