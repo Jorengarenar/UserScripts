@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         AniList: Activity Cleaner
 // @description  Automatically deletes all new list activity entries from your profile
-// @version      1.0.1
+// @version      1.0.2
 // @author       Jorengarenar
 // @namespace    https://joren.ga
 // @run-at       document-start
@@ -91,5 +91,8 @@ document.addEventListener("click", (el) => {
 });
 
 document.addEventListener("click", (el) => {
-  if (el.target.textContent === "Set as Planning") { window.setTimeout(start, 500); }
+  let tx = el.target.textContent;
+  if (tx === "Set as Planning" || tx.match("Set as Complete")) {
+    window.setTimeout(start, 500);
+  }
 }, true);
