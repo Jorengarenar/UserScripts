@@ -7,7 +7,7 @@
 // @include      https?:\/\/(www\.|old\.)?reddit.com.*
 // ==/UserScript==
 
-var btn = document.createElement("button");
+const btn = document.createElement("button");
 btn.innerHTML = "Expando Button";
 btn.onclick = function() {
   $(".expando-button.collapsed").click();

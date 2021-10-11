@@ -16,7 +16,7 @@ const parser = new DOMParser();
 
 function clearEntry(context) {
   parser.parseFromString(context, "text/html").querySelectorAll("a").forEach((a) => {
-    let entry = a.getAttribute("onclick");
+    const entry = a.getAttribute("onclick");
     $.ajax({
       type:     "POST",
       url:      `/includes/ajax.inc.php?t=${entry.match(/removeEp/) ? 58 : 60}`,

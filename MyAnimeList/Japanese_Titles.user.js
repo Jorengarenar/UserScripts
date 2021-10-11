@@ -11,14 +11,14 @@
 // @grant        GM_xmlhttpRequest
 // ==/UserScript==
 
-var pattern = /<span class="dark_text">Japanese:<\/span> (.*?)(?:<\/div>|\n)/;
+const pattern = /<span class="dark_text">Japanese:<\/span> (.*?)(?:<\/div>|\n)/;
 
 // Lists, profile and search page
-var titles = document.querySelectorAll("td.title > a, .statistics-updates > .data > a, a.fw-b.fl-l");
+const titles = document.querySelectorAll("td.title > a, .statistics-updates > .data > a, a.fw-b.fl-l");
 console.log(titles);
 
 if (titles.length <= 100) {
-  for (let title of titles) {
+  for (const title of titles) {
     GM_xmlhttpRequest({
       method: "GET",
       url: title.getAttribute("href"),
@@ -28,7 +28,7 @@ if (titles.length <= 100) {
 }
 
 // Anime/manga pages
-let title = pattern.exec(document.getElementById("content").innerHTML)[1];
-let romanji = document.getElementsByClassName("h1")[0];
+const title = pattern.exec(document.getElementById("content").innerHTML)[1];
+const romanji = document.getElementsByClassName("h1")[0];
 document.getElementsByTagName("title")[0].innerHTML = title + " | " + romanji.innerText;
 romanji.innerHTML = title;
