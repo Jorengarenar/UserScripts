@@ -3,7 +3,7 @@
 // @description  Automatically marks anime from Watching/Planning list as "Watching" / "Maybe Watching" (may require refreshing page twice)
 // @author       Jorengarenar
 // @namespace    https://joren.ga
-// @version      1.0.1
+// @version      1.0.2
 // @run-at       document-start
 // @match        https://anichart.net/*
 // @grant        GM_getValue
@@ -57,7 +57,8 @@ function buildQuery(list, color) {
 }
 
 function mark(lists) {
-  const queryBody = buildQuery(lists[0], "green") + buildQuery(lists[1], "yellow");
+  const colors = { "Watching": "green", "Planning": "yellow" };
+  const queryBody = lists.map((l) => buildQuery(l, colors[l.name])).join("");
   if (queryBody === "") { return; }
   fetch(url, {
     method: "POST",
@@ -75,6 +76,7 @@ function getLists(userId) {
         query ($statuses: [MediaListStatus!] = [CURRENT PLANNING]) {
           MediaListCollection (userId: ${userId}, type: ANIME, forceSingleCompletedList: true, status_in: $statuses) {
             lists {
+              name,
               entries {
                 media {
                   id
