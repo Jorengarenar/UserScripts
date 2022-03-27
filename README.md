@@ -9,7 +9,7 @@
       <th>DESCRIPTION</th>
     </tr>
   </thead>
-  <tbody>
+  <tbody> <!-- AniChart -->
     <tr><td rowspan=0><a href="https://anichart.net">AniChart</a></td></tr>
     <tr>
       <td><a href="https://github.com/Jorengarenar/userscripts/raw/master/AniChart/Auto_import_from_AniList.user.js">Auto import from AniList</a></td>
@@ -22,7 +22,7 @@
     </tr>
     <tr> <!-- no zebra --> </tr>
   </tbody>
-  <tbody>
+  <tbody> <!-- AniList -->
     <tr><td rowspan=0><a href="https://anilist.co">AniList</a></td></tr>
     <tr>
       <td><a href="https://github.com/Jorengarenar/userscripts/raw/master/AniList/ActivityCleaner.user.js">Activity Cleaner</a></td>
@@ -30,7 +30,7 @@
     </tr>
     <tr> <!-- no zebra --> </tr>
   </tbody>
-  <tbody>
+  <tbody> <!-- GitHub -->
     <tr><td rowspan=0><a href="https://github.com">GitHub</a></td></tr>
     <tr>
       <td><a href="https://github.com/Jorengarenar/userscripts/raw/master/GitHub/Search_All_Github_by_default.user.js">Search "All Github" by default</a></td>
@@ -38,7 +38,7 @@
     </tr>
     <tr> <!-- no zebra --> </tr>
   </tbody>
-  <tbody>
+  <tbody> <!-- Hacker News -->
     <tr><td rowspan=0><a href="https://news.ycombinator.com/">Hacker News</a></td></tr>
     <tr>
       <td><a href="https://github.com/Jorengarenar/userscripts/raw/master/HackerNews/Comment_collapse.user.js">Comment collapse</a></td>
@@ -46,7 +46,7 @@
     </tr>
     <tr> <!-- no zebra --> </tr>
   </tbody>
-  <tbody>
+  <tbody> <!-- MyAnimeList -->
     <tr><td rowspan=0><a href="https://myanimelist.net">MyAnimeList</a></td></tr>
     <tr>
       <td><a href="https://github.com/Jorengarenar/userscripts/raw/master/MyAnimeList/Auto_History_Remover.user.js">Auto History Remover</a></td>
@@ -64,7 +64,7 @@
     </tr>
     <tr> <!-- no zebra --> </tr>
   </tbody>
-  <tbody>
+  <tbody> <!-- Pocket -->
     <tr><td rowspan=0><a href="https://app.getpocket.com">Pocket</a></td></tr>
     <tr>
       <td><a href="https://github.com/Jorengarenar/userscripts/raw/master/Pocket/Open_original_URLs.user.js">Open original URLs</a></td>
@@ -72,7 +72,7 @@
     </tr>
     <tr> <!-- no zebra --> </tr>
   </tbody>
-  <tbody>
+  <tbody> <!-- Reddit (old) -->
     <tr><td rowspan=0><a href="https://old.reddit.com">Reddit (old)</a></td></tr>
     <tr>
       <td><a href="https://github.com/Jorengarenar/userscripts/raw/master/Reddit/Better_Markdown.user.js">Better Markdown</a></td>
@@ -85,7 +85,7 @@
     </tr>
     <tr> <!-- no zebra --> </tr>
   </tbody>
-  <tbody>
+  <tbody> <!-- SteamGifts -->
     <tr><td rowspan=0><a href="https://www.steamgifts.com">SteamGifts</a></td></tr>
     <tr>
       <td><a href="https://github.com/Jorengarenar/userscripts/raw/master/SteamGifts/ESG_Hide_entered.user.js">ESG - Hide entered</a></td>
