@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Better Markdown for Old Reddit
 // @description  Replace Markdown renderer on Old Reddit with Marked
-// @version      1.1.8
+// @version      1.1.9
 // @author       Jorengarenar
 // @namespace    https://joren.ga
 // @run-at       document-start
@@ -10,11 +10,15 @@
 // @match        https://*.reddit.com/user/*
 // ==/UserScript==
 
+/* global marked */
+
+"use strict";
+
 const spoiler = {
   name: "spoiler",
   level: "inline",
   start(src) { return src.match(/@?>!/)?.index; },
-  tokenizer(src, tokens) {
+  tokenizer(src) {
     const rule = /^@?>!(.*?)!</;
     const match = rule.exec(src);
     if (match) {
@@ -35,7 +39,7 @@ const superscript = {
   name: "superscript",
   level: "inline",
   start(src) { return src.match(/\^/)?.index; },
-  tokenizer(src, tokens) {
+  tokenizer(src) {
     const rule = /^\^(\((.*?)\)|(\S+))/;
     const match = rule.exec(src);
     if (match) {
@@ -57,7 +61,7 @@ const subreddit = {
   name: "subreddit",
   level: "inline",
   start(src) { return src.match(/(?<=\s)\/?[ru]\//)?.index; },
-  tokenizer(src, tokens) {
+  tokenizer(src) {
     const rule = /^\/?([ru]\/[\w\d_-]+)/;
     const match = rule.exec(src);
     if (match) {
@@ -77,7 +81,7 @@ const imgPreview = {
   name: "imgPreview",
   level: "inline",
   start(src) { return src.match(/https:\/\/preview\.redd\.it/)?.index; },
-  tokenizer(src, tokens) {
+  tokenizer(src) {
     const rule = /^(https:\/\/preview\.redd\.it\/\S+)/;
     const match = rule.exec(src);
     if (match) {
@@ -97,7 +101,7 @@ const gif = {
   name: "gif",
   level: "inline",
   start(src) { return src.match(/!\[gif\]\(giphy\|/)?.index; },
-  tokenizer(src, tokens) {
+  tokenizer(src) {
     const rule = /^!\[gif\]\(giphy\|(.+?)(\|.*)?\)/;
     const match = rule.exec(src);
     if (match) {
@@ -117,7 +121,7 @@ const escHTML = {
   name: "escHTML",
   level: "inline",
   start(src) { return src.match(/</)?.index; },
-  tokenizer(src, tokens) {
+  tokenizer(src) {
     const rule = /^<(.*?)>/;
     const match = rule.exec(src);
     if (match) {
@@ -138,7 +142,7 @@ marked.use({ extensions: [ spoiler, superscript, subreddit, imgPreview, gif, esc
 
 
 function recodeHTML(html) {
-  let txt = document.createElement("textarea");
+  const txt = document.createElement("textarea");
   txt.innerHTML = html;
   return txt.value.replace(/<(.+)>(.*?)<\/\1>/gms, "&lt;$1&gt;$2&lt;\/$1&gt;");
 }
@@ -146,12 +150,14 @@ function recodeHTML(html) {
 function genMd(d) {
   d.data.children.forEach((c) => {
     if (c.kind === "t1" || c.kind === "t3") {
-      let md = document.querySelector(`#thing_${c.kind}_${c.data.id} > .entry > ` +
-                                      `${c.kind === "t3" ? "div >" : ""} form > ` +
-                                      `.usertext-body > .md:not(.marked)` );
+      const md = document.querySelector(`#thing_${c.kind}_${c.data.id} > .entry > ` +
+                                        `${c.kind === "t3" ? "div >" : ""} form > ` +
+                                        `.usertext-body > .md:not(.marked)` );
       if (md) {
         const text = c.kind === "t3" ? c.data.selftext : c.data.body;
-        md.innerHTML = marked.parse(recodeHTML(text)); // unsure whether sanitization will be necessary?
+        let html = recodeHTML(text);
+        html = html.replace(/^>!(.*)!</m, "@>!$1!<");
+        md.innerHTML = marked.parse(html); // unsure whether sanitization will be necessary?
         md.classList.add("marked");
       }
     }
