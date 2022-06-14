@@ -38,6 +38,14 @@
     </tr>
     <tr> <!-- no zebra --> </tr>
   </tbody>
+  <tbody> <!-- Gmail -->
+    <tr><td rowspan=0><a href="http://mail.google.com">Gmail</a></td></tr>
+    <tr>
+      <td><a href="https://github.com/Jorengarenar/userscripts/raw/master/Gmail/Show_Archived.user.js">Show Archived</a></td>
+      <td>A folder-looking button to show archivized emails</td>
+    </tr>
+    <tr> <!-- no zebra --> </tr>
+  </tbody>
   <tbody> <!-- Hacker News -->
     <tr><td rowspan=0><a href="https://news.ycombinator.com/">Hacker News</a></td></tr>
     <tr>
