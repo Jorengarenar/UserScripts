@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         AniList: Activity Cleaner
 // @description  Automatically deletes all new list activity entries from your profile
-// @version      1.0.2
+// @version      1.0.3
 // @author       Jorengarenar
 // @namespace    https://joren.ga
 // @run-at       document-start
@@ -87,7 +87,9 @@ function start() { // get IDs of activities then delete them
 
 document.addEventListener("click", (el) => {
   let cl = el.target.className;
-  if (cl === "plus-progress" || cl === "save-btn") { start(); }
+  if (cl === "plus-progress" || cl === "save-btn") {
+    window.setTimeout(start, 500);
+  }
 });
 
 document.addEventListener("click", (el) => {
