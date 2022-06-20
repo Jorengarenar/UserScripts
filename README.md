@@ -22,14 +22,6 @@
     </tr>
     <tr> <!-- no zebra --> </tr>
   </tbody>
-  <tbody> <!-- AniList -->
-    <tr><td rowspan=0><a href="https://anilist.co">AniList</a></td></tr>
-    <tr>
-      <td><a href="https://github.com/Jorengarenar/userscripts/raw/master/AniList/ActivityCleaner.user.js">Activity Cleaner</a></td>
-      <td>Automatically deletes all new list activity entries from your profile</td>
-    </tr>
-    <tr> <!-- no zebra --> </tr>
-  </tbody>
   <tbody> <!-- GitHub -->
     <tr><td rowspan=0><a href="https://github.com">GitHub</a></td></tr>
     <tr>
